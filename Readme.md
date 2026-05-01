@@ -1,19 +1,20 @@
-# TYPO3 Extension `solr`
+# TYPO3 Solr Numbered Pagination
 
-This extension enables the extension [numbered_pagination](https://github.com/georgringer/numbered_pagination/) for EXT:solr
+Local TYPO3 14 / EXT:solr 14 adaptation of `studiomitte/solr-numbered-pagination`.
 
-## Usage
+The package keeps the upstream event-listener approach: before EXT:solr assigns
+search results to Fluid, it replaces the default Solr pagination object with
+`GeorgRinger\NumberedPagination\NumberedPagination`.
 
-1) Install extension with `composer require studiomitte/solr-numbered-pagination`
-2) Done
+This project overrides the Solr `Result/Pagination` partial through site
+settings:
 
-## Thanks to
+```yaml
+plugin:
+  tx_solr:
+    view:
+      partialRootPath: 'EXT:solr_numbered_pagination/Resources/Private/Partials/'
+```
 
-This extension has been developed by [Studio Mitte](https://studiomitte.com), TYPO3 agency in Linz, Austria.
-
-
-## Credits
-
-This extension was created by Georg Ringer for [Studio Mitte, Linz](https://studiomitte.com).
-
-[Find more TYPO3 extensions we have developed](https://www.studiomitte.com/loesungen/typo3) that provide additional features for TYPO3 sites. 
+The bundled partial uses shadcn/ui-style pagination classes while keeping
+EXT:solr's pagination URL ViewHelper.

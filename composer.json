@@ -1,29 +1,21 @@
 {
-  "name": "studiomitte/solr-numbered-pagination",
-  "type": "typo3-cms-extension",
-  "description": "Limit the amount of used pages in EXT:solr in the pagination",
-  "authors": [
-    {
-      "name": "Georg Ringer",
-      "role": "Developer"
+    "name": "studiomitte/solr-numbered-pagination",
+    "type": "typo3-cms-extension",
+    "description": "Limit the amount of used pages in EXT:solr in the pagination",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "apache-solr-for-typo3/solr": "^14.0@alpha",
+        "georgringer/numbered-pagination": "^2.2",
+        "typo3/cms-core": "^14.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "StudioMitte\\SolrNumberedPagination\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "solr_numbered_pagination"
+        }
     }
-  ],
-  "license": [
-    "GPL-2.0-or-later"
-  ],
-  "require": {
-    "typo3/cms-core": "^10 || ^11.5 || ^12.4.2 || ^13.4",
-    "georgringer/numbered-pagination": "^1 || ^2",
-    "apache-solr-for-typo3/solr": "11.5.x-dev || ^11 || ^12 || ^13 || 13.0.x-dev"
-  },
-  "autoload": {
-    "psr-4": {
-      "StudioMitte\\SolrNumberedPagination\\": "Classes"
-    }
-  },
-  "extra": {
-    "typo3/cms": {
-      "extension-key": "solr_numbered_pagination"
-    }
-  }
 }
